@@ -1,0 +1,28 @@
+{
+  "name": "TodoApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "create-react-app": "^3.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "mytodolist": "cd mytodolist && npm start",
+    "mytodoapi": "cd mytodoapi && npm start",
+    "start": "concurrently - kill-others \"npm run mytodoapi\" \"npm run mytodolist\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taher1019/TodoList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taher1019/TodoList/issues"
+  },
+  "homepage": "https://github.com/taher1019/TodoList#readme"
+}
