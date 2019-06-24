@@ -1,0 +1,176 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 7px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=email] {
+	  width: 20%;
+  padding: 12px 34px;
+  margin: 8px -22px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.label-email{
+	    margin: 31px;
+}
+
+h1.modal-h1
+{
+	margin-left: 55px;
+}
+
+.modal-h1-logout{
+	    margin-left: 30px;
+}
+
+h1.h1-signup{
+	margin: 11px 500px;
+}
+
+.signup-container {
+	    margin: 20px 265px 28px 457px;
+    width: 1200px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+
+button.home-btn {
+	background-color: #4CAF50;
+    color: white;
+    padding: 9px 12px 12px 15px;
+    margin: 9px 6px;
+    border: none;
+    cursor: pointer;
+    width: 9%;
+}
+button.header-btn {
+	    background-color: #4CAF50;
+    color: white;
+    padding: 8px 54px 9px 13px;
+    margin: 6px 6px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+button.header-btn-share {
+	background-color: #4CAF50;
+    color: white;
+    margin: 6px 9px;
+    padding: 8px 53px 11px 20px;
+	border: none;
+    cursor: pointer;
+    width: 10%;
+}
+button.btn-signup{
+	background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 115px;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+
+.login-h1 {
+	margin: 0 202px;
+}
+
+span.errMsgSUClass{
+	   color: red;
+    font-style: italic;
+    font-size: 16px;
+}
+
+span.errMsgLClass{
+	    color: red;
+    font-style: italic;
+    font-size: 16px;
+    margin-left: 200px;
+}
+
+.login-container{
+	    width: 1080px;
+    height: 112px;
+    display: inline-block;
+    margin: 2px 108px;
+    padding: 7px 4px 0 9px;
+}
+
+.login-div{
+	width: 933px;
+    height: 49px;
+    display: inline-block;
+    margin: 75px 201px 10px 358px;
+}
+
+button.modal-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 3px;
+  margin: 4px 109px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+button.btn-login
+{
+	 background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 120px;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.notmember-span
+{
+	margin-left : 80px;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
