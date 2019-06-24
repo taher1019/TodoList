@@ -6,17 +6,17 @@ import BrowserRouter from "react-router-dom/BrowserRouter";
 import Modal from 'react-awesome-modal';
 
 class TodoSignUp extends React.Component{
-	
+
 	constructor(props){
 		super(props);
-		
+
 			this.state = {
             visible : false
         }
-		
+
 		this.addUser = this.addUser.bind(this);
 	}
-	
+
 	openModal() {
 		console.log("Inside open modal");
         this.setState({
@@ -30,16 +30,16 @@ class TodoSignUp extends React.Component{
         });
 		this.props.history.push('/todologin');
     }
-	
+
 	addUser(){
-		
+
 		var uname = document.getElementById('username').value;
 		var email_id = document.getElementById('email').value;
 		var pwd = document.getElementById('password').value;
-		
-		
+
+
 		var errorFlag = false;
-		
+
 		if(email_id == "" || email_id == null || email_id == undefined)
 		{
 			//error
@@ -52,14 +52,14 @@ class TodoSignUp extends React.Component{
 				errorFlag=true;
 				document.getElementById('errMsgSU').innerHTML = "Invalid Email Id";
 			}
-			
+
 		 if (uname == "" || uname == null || uname == undefined)
 			{
 				//error
 				errorFlag=true;
 				document.getElementById('errMsgSU').innerHTML = "Please enter Username";
 			}
-			
+
 			 if(pwd == "" || pwd == null || pwd == undefined)
 			{
 				errorFlag=true;
@@ -71,7 +71,7 @@ class TodoSignUp extends React.Component{
 				errorFlag=true;
 				document.getElementById('errMsgSU').innerHTML = "Password length should be greater than six and less than 15";
 			}
-		
+
 		if(!errorFlag)
 		{
 		var data = {
@@ -80,8 +80,8 @@ class TodoSignUp extends React.Component{
 			pass : pwd
 		}
 		console.log('Data Sign  up : ',data);
-		
-		var url = 'http://localhost:3001/usersignup/';
+
+		var url = '/usersignup/';
 
 			fetch(url, {
 			method: 'POST', // or 'PUT'
@@ -108,12 +108,12 @@ class TodoSignUp extends React.Component{
 			.catch(error => console.error('Error:', error));
 		}
 	}
-	
+
 	render() {
     return (
       <div>
 	  <HeaderLogin />
-	  
+
 		<h1 className="h1-signup">Sign Up Page</h1>
 		<hr />
 		 <div className="signup-container">
@@ -132,20 +132,20 @@ class TodoSignUp extends React.Component{
 			<br />
 			<button className="btn-signup" onClick={this.addUser}>Sign Up</button>
 			<br />
-			
+
 		 </div>
-		 
+
 		 <Modal visible={this.state.visible} width="320" height="200" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1 id="signupmsg" className="modal-h1"></h1>
                         <button className="modal-btn" href="javascript:void(0);" onClick={() => this.closeModal()}>Close</button>
                     </div>
                 </Modal>
-		 
+
 	  </div>
     );
   }
-	
+
 }
 
 export default TodoSignUp;

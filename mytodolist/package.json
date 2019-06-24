@@ -1,6 +1,7 @@
 {
   "name": "mytodolist",
   "version": "0.1.0",
+  "proxy": "http://localhost:3001/",
   "private": true,
   "dependencies": {
     "js-cookies": "^1.0.4",

@@ -4,18 +4,18 @@ import './todoheader.css';
 import Modal from 'react-awesome-modal';
 
 class Header extends React.Component{
-	
+
 	constructor(props){
 		super(props);
-		
+
 		this.state = {
             visible : false
         }
-		
+
 		this.logoutUser = this.logoutUser.bind(this);
 		this.shareTodo = this.shareTodo.bind(this);
 	}
-	
+
 	openModal() {
 		console.log("Inside open modal");
         this.setState({
@@ -29,16 +29,16 @@ class Header extends React.Component{
         });
 		this.props.history.push('/todologin');
     }
-	
+
 	shareTodo(){
-		var url = 'http://localhost:3001/sharetodo/';
-		
+		var url = '/sharetodo/';
+
 		var shareEmail = localStorage.getItem("email");
 		var divData = document.getElementById("home-div").innerHTML;
-		
+
 		console.log("Div data console : ",divData);
-		
-		
+
+
 		var data = {
 			email : shareEmail,
 			divhtml : divData
@@ -66,26 +66,26 @@ class Header extends React.Component{
 			})
 			.catch(error => console.error('Error:', error));
 	}
-	
+
 	logoutUser(){
-		
-		fetch('http://localhost:3001/sessionlogout')
+
+		fetch('/sessionlogout')
         .then(res => res.json())
         .then((data) => {
 			var sessionlogout = JSON.stringify(data);
 			console.log("Session check value : ",sessionlogout);
-			
+
 			localStorage.setItem("userName", "");
 			localStorage.setItem("email", "");
-		
+
 		this.openModal();
-			
+
 		})
         .catch(console.log)
-		
+
 	}
-	
-	
+
+
 	render() {
     return (
       <div className="header">
@@ -103,7 +103,7 @@ class Header extends React.Component{
 </div>
     );
   }
-	
+
 }
 
 export default withRouter(Header);

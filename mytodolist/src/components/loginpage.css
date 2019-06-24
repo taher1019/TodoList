@@ -51,15 +51,11 @@ button {
   width: 10%;
 }
 
-button.home-btn {
-	background-color: #4CAF50;
-    color: white;
-    padding: 9px 12px 12px 15px;
-    margin: 9px 6px;
-    border: none;
-    cursor: pointer;
-    width: 9%;
+.activelist {
+      margin: -26px 88px 27px;
 }
+
+
 button.header-btn {
 	    background-color: #4CAF50;
     color: white;
@@ -162,6 +158,62 @@ img.avatar {
 span.psw {
   float: right;
   padding-top: 16px;
+}
+
+.tooltipremove {
+  display : none;
+  width: 120px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 3px 3px;
+  position: absolute;
+  z-index: 1;
+  bottom: 60%;
+  left: 7%;
+  margin-left: -75px;
+}
+
+.tooltipcomplete{
+  display:none;
+  width: 120px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 3px 3px;
+  position: absolute;
+  z-index: 1;
+  bottom: 58%;
+  left: 7%;
+  margin-left: -75px;
+}
+
+.home-remove {
+height : 18px;
+margin: 0px 3px;
+cursor: pointer;
+}
+
+.home-complete {
+height : 18px;
+margin: 0px 3px;
+cursor: pointer;
+}
+
+.clremove-img {
+  height : 18px;
+  margin: -21px 3px;
+  cursor: pointer;
+}
+
+h3 {
+  margin-left: 25px;
+}
+
+.com-list {
+      margin: 0px 58px 1px;
 }
 
 /* Change styles for span and cancel button on extra small screens */

@@ -4,38 +4,37 @@ import Header from './header';
 import Todo from './todo';
 import TodoCompletedList from './todolist';
 import TodoDynamicList from './tododynamiclist';
-import UserProfile from './userprofile';
 
 class TodoHome extends React.Component{
-	
-	
-	
+
+
+
 	constructor(props){
 		super(props);
-		
+
 		this.state = {
 			activeTodo : [],
-			
+
 			completedTodo : []
-		};	
-		
+		};
+
 		this.addTodoList = this.addTodoList.bind(this);
 		this.removeTodoList = this.removeTodoList.bind(this);
 	}
-	
+
 	componentDidMount() {
-		
+
 		var up_username = localStorage.getItem("userName");
 		var up_email = localStorage.getItem("email");
-		
+
 		var dataUp = {
 			username : up_username,
 		}
-		
-		fetch('http://localhost:3001/sessioncheck')
+
+		fetch('/sessioncheck')
         .then(res => res.json())
         .then((data) => {
-			
+
 			var sessioncheck = JSON.stringify(data);
 			console.log("Session check value : ",sessioncheck);
 		if(up_username.length > 0 && up_email.length > 0)
@@ -43,13 +42,13 @@ class TodoHome extends React.Component{
           if(sessioncheck === "true")
 		  {
 			  console.log("Session check inside if : ",sessioncheck);
-			  
-			   fetch('http://localhost:3001/fetchactivetodo',
+
+			   fetch('/fetchactivetodo',
 			   {
 			method: 'POST', // or 'PUT'
 			body: JSON.stringify({
 						dataUp
-								}), 
+								}),
 			headers:{
 			'Content-Type': 'application/json'
 					}
@@ -67,8 +66,8 @@ class TodoHome extends React.Component{
 			}
         })
         .catch(console.log)
-		
-		fetch('http://localhost:3001/fetchcompletedtodo',
+
+		fetch('/fetchcompletedtodo',
 		{
 			method: 'POST', // or 'PUT'
 			body: JSON.stringify({
@@ -76,7 +75,7 @@ class TodoHome extends React.Component{
 								}),
             headers:{
 			'Content-Type': 'application/json'
-					}								
+					}
 					})
         .then(res => res.json())
         .then((data) => {
@@ -92,7 +91,7 @@ class TodoHome extends React.Component{
         })
         .catch(console.log)
 		  }
-		 
+
 		}
 		 else
 		  {
@@ -101,13 +100,13 @@ class TodoHome extends React.Component{
 		  }
         })
         .catch(console.log)
-		
-       
+
+
       }
-	
+
 	addTodoList(todoTextAdd)
 	{
-		var url = 'http://localhost:3001/postop/';
+		var url = '/postop/';
 		var data = {addTodoText: todoTextAdd,
 					username : localStorage.getItem("userName")};
 
@@ -124,10 +123,10 @@ class TodoHome extends React.Component{
 			.catch(error => console.error('Error:', error));
 		window.location.reload();
 	}
-	
+
 	removeTodoList(id){
-	  
-	  var url = 'http://localhost:3001/deletetodo/';
+
+	  var url = '/deletetodo/';
 		var data = {addTodoId: id};
 
 			fetch(url, {
@@ -141,13 +140,13 @@ class TodoHome extends React.Component{
 					}).then(res => res.json())
 			.then(response => console.log('Success:', JSON.stringify(response)))
 			.catch(error => console.error('Error:', error));
-	  
+
 	 window.location.reload();
 	}
-	
+
 	updateTodoList(id){
-	  
-	  var url = 'http://localhost:3001/marktodocomplete/';
+
+	  var url = '/marktodocomplete/';
 		var data = {addTodoId: id};
 
 			fetch(url, {
@@ -161,10 +160,10 @@ class TodoHome extends React.Component{
 					}).then(res => res.json())
 			.then(response => console.log('Success:', JSON.stringify(response)))
 			.catch(error => console.error('Error:', error));
-			
+
 			window.location.reload();
 	}
-	
+
 	render(){
   return (
     <div>
@@ -174,6 +173,7 @@ class TodoHome extends React.Component{
 	  <hr />
 	  <div id="home-div">
 	  <h3>Active Todos : </h3>
+		<br/>
 	  <ul>
 	  {
 	  this.state.activeTodo.map((dtodo)=>{
@@ -195,7 +195,7 @@ class TodoHome extends React.Component{
     </div>
   )
 	}
-	
+
 }
 
 export default TodoHome;

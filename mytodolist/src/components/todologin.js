@@ -3,24 +3,23 @@ import HeaderLogin from './headerlogin';
 import './loginpage.css';
 import {BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
 import TodoSignUp from './todosignup';
-import UserProfile from './userprofile';
 
 class TodoLogin extends React.Component{
-	
+
 	constructor(props){
 		super(props);
-		
+
 		this.loginUser = this.loginUser.bind(this);
 	}
-	
+
 	loginUser(){
-		
+
 		var uname = document.getElementById('username').value;
 		var pwd = document.getElementById('password').value;
 		var errorFlafLogin = false;
-		
-		
-			
+
+
+
 			 if(pwd == "" || pwd == null || pwd == undefined)
 			{
 				errorFlafLogin=true;
@@ -32,23 +31,23 @@ class TodoLogin extends React.Component{
 				errorFlafLogin=true;
 				document.getElementById('errMsgSU').innerHTML = "Password length should be greater than six and less than fifteen";
 			}
-		
+
 		if (uname == "" || uname == null || uname == undefined)
 			{
 				//error
 				errorFlafLogin=true;
 				document.getElementById('errMsgSU').innerHTML = "Please enter Username";
 			}
-		
+
 		if(!errorFlafLogin)
 		{
-		
+
 		var data = {
 			username : uname,
 			pass : pwd
 		}
-		
-		var url = 'http://localhost:3001/userlogin/';
+
+		var url = '/userlogin/';
 
 			fetch(url, {
 			method: 'POST', // or 'PUT'
@@ -78,12 +77,12 @@ class TodoLogin extends React.Component{
 			.catch(error => console.error('Error:', error));
 		}
 	}
-	
+
 	render() {
     return (
       <div>
 	  <HeaderLogin />
-	  
+
 	  <div className="login-div">
 		<h1 className="login-h1">Login Page</h1>
 		<br />
@@ -106,7 +105,7 @@ class TodoLogin extends React.Component{
 	  </div>
     );
   }
-	
+
 }
 
 export default TodoLogin;
